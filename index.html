@@ -1,0 +1,506 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kaartik Issar | Gifted Student Mentorship</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#080b14;
+    color:white;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(0,255,255,0.08),transparent 25%),
+    radial-gradient(circle at 80% 40%,rgba(140,82,255,0.12),transparent 25%),
+    radial-gradient(circle at 50% 80%,rgba(255,255,255,0.03),transparent 30%);
+    z-index:-2;
+}
+
+.grid{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size:50px 50px;
+    z-index:-1;
+}
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    backdrop-filter:blur(20px);
+    background:rgba(8,11,20,0.8);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    z-index:1000;
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:1.2rem;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.nav-links{
+    display:flex;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#d8d8d8;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#6ef7ff;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+}
+
+.hero-content{
+    max-width:900px;
+}
+
+.hero h1{
+    font-size:clamp(3rem,7vw,6rem);
+    line-height:1;
+    margin-bottom:25px;
+    font-weight:800;
+}
+
+.gradient{
+    background:linear-gradient(90deg,#6ef7ff,#8b5cf6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero p{
+    font-size:1.3rem;
+    color:#b8c1d1;
+    line-height:1.8;
+    margin-bottom:40px;
+}
+
+.btn{
+    display:inline-block;
+    padding:16px 35px;
+    background:linear-gradient(90deg,#6ef7ff,#8b5cf6);
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:100px 30px;
+}
+
+.section-title{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.section-sub{
+    color:#a7b2c3;
+    max-width:800px;
+    line-height:1.8;
+    margin-bottom:60px;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:30px;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:#6ef7ff;
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#b7c2d1;
+    line-height:1.8;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+    margin-top:60px;
+}
+
+.stat{
+    text-align:center;
+    padding:35px;
+    background:rgba(255,255,255,0.04);
+    border-radius:20px;
+}
+
+.stat h2{
+    font-size:2.5rem;
+    color:#6ef7ff;
+}
+
+.stat p{
+    color:#bfc8d8;
+}
+
+.timeline{
+    display:grid;
+    gap:25px;
+}
+
+.timeline-item{
+    padding:25px;
+    border-left:3px solid #6ef7ff;
+    background:rgba(255,255,255,0.04);
+}
+
+.timeline-item h3{
+    margin-bottom:10px;
+}
+
+.timeline-item p{
+    color:#bfc8d8;
+    line-height:1.8;
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact-box{
+    max-width:800px;
+    margin:auto;
+    padding:50px;
+    border-radius:25px;
+    background:linear-gradient(
+        135deg,
+        rgba(110,247,255,0.08),
+        rgba(139,92,246,0.08)
+    );
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.contact-box h2{
+    margin-bottom:20px;
+}
+
+.contact-box p{
+    color:#d2d9e5;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.email{
+    color:#6ef7ff;
+    font-size:1.2rem;
+    font-weight:700;
+}
+
+footer{
+    text-align:center;
+    padding:50px;
+    color:#7d8795;
+}
+
+@media(max-width:768px){
+
+.nav-links{
+    display:none;
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+.section-title{
+    font-size:2rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="grid"></div>
+
+<nav>
+<div class="nav-container">
+<div class="logo">KAARTIK ISSAR</div>
+
+<div class="nav-links">
+<a href="#about">About</a>
+<a href="#gifted">Gifted Students</a>
+<a href="#mentorship">Mentorship</a>
+<a href="#apply">Apply</a>
+</div>
+</div>
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+For Students Who Think
+<span class="gradient">Beyond The Textbook</span>
+</h1>
+
+<p>
+Gifted Student Mentorship in Artificial Intelligence, Research,
+Mathematics, Technology, Entrepreneurship and Advanced Thinking.
+Designed for curious students who want to explore ideas far beyond the school curriculum.
+</p>
+
+<a href="#apply" class="btn">Apply for Mentorship</a>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="section-title">About Kaartik</h2>
+
+<p class="section-sub">
+Kaartik Issar is an AI researcher, Data Scientist, educator, and mentor specializing in the development of gifted and highly curious students.<br>
+
+His academic and professional background includes: <br>
+
+• High Distinction graduate from the University of Toronto <br>
+
+• Completed dual Bachelor's degrees in Computer Science and Statistics in just four years<br>
+
+• Former Teaching Fellow and Teaching Assistant at the University of Toronto<br>
+
+• Industry experience as a Data Scientist and AI Engineer<br>
+
+• Research experience spanning artificial intelligence, machine learning, and computational sciences<br>
+
+• Author of three research publications<br>
+
+• More than 1,000 hours of teaching experience through Varsity Tutors<br>
+
+• Mentored over 20 gifted students across mathematics, computer science, research, entrepreneurship, and advanced problem solving<br>
+
+Long before becoming a mentor, Kaartik was identified as a gifted student himself in Grade 7 and understands many of the challenges gifted learners face: boredom, lack of intellectual challenge, perfectionism, and the desire to explore ideas beyond what is taught in school.<br>
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<h2>1000+</h2>
+<p>Teaching Hours</p>
+</div>
+
+<div class="stat">
+<h2>20+</h2>
+<p>Gifted Students Mentored</p>
+</div>
+
+<div class="stat">
+<h2>3</h2>
+<p>Research Publications</p>
+</div>
+
+<div class="stat">
+<h2>2</h2>
+<p>Degrees Completed in 4 Years</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="gifted">
+
+<h2 class="section-title">What Gifted Students Need</h2>
+
+<p class="section-sub">
+Gifted students do not simply learn faster. They often learn differently. Many crave complexity, creativity, depth, and intellectual exploration. Traditional tutoring focuses on grades. Gifted students often need mentorship.
+</p>
+
+<div class="about-grid">
+
+<div class="card">
+<h3>Intellectual Challenge</h3>
+<p>
+Students are encouraged to tackle ideas that stretch their thinking rather than simply completing curriculum exercises.
+</p>
+</div>
+
+<div class="card">
+<h3>Curiosity-Driven Learning</h3>
+<p>
+Sessions begin with questions and interests, not textbooks.
+</p>
+</div>
+
+<div class="card">
+<h3>Real-World Projects</h3>
+<p>
+Students create meaningful work rather than consuming information passively.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="mentorship">
+
+<h2 class="section-title">What We Explore</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Artificial Intelligence & Machine Learning</h3>
+<p>Understand how modern AI systems work and build your own projects.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Research & Publications</h3>
+<p>Learn how researchers think, investigate questions, and communicate discoveries.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Advanced Mathematics & Physics</h3>
+<p>Explore fascinating concepts rarely encountered in school classrooms.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Entrepreneurship & Startup Design</h3>
+<p>Create startup ideas, solve meaningful problems, and develop innovation skills.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Programming, Websites & Technology</h3>
+<p>Build websites, applications, games, and digital products from scratch.</p>
+</div>
+
+<div class="timeline-item">
+<h3>Investing & Financial Thinking</h3>
+<p>Learn how businesses, markets, and long-term wealth creation work.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="apply" class="contact">
+
+<div class="contact-box">
+
+<h2>Apply for Mentorship</h2>
+
+<p>
+A limited number of students are mentored each year to ensure personalized guidance and meaningful projects.
+</p>
+
+<p>
+If you believe you would benefit from this experience, send an email with:
+</p>
+
+<p>
+Your name<br>
+Grade level<br>
+A short bio about yourself<br>
+Your interests and passions<br>
+Projects you have worked on<br>
+What you hope to learn
+</p>
+
+<p class="email">
+your.email@example.com
+</p>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Kaartik Issar • Gifted Student Mentor
+</footer>
+
+<script>
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+anchor.addEventListener('click',function(e){
+e.preventDefault();
+document.querySelector(this.getAttribute('href'))
+.scrollIntoView({
+behavior:'smooth'
+});
+});
+});
+
+</script>
+
+</body>
+</html>
+
